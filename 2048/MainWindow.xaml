@@ -13,22 +13,22 @@
             <Setter Property="Margin" Value="5"/>
             <Setter Property="FontSize" Value="100"/>
             <Style.Triggers >
-                <Trigger Property="Content" Value="2">
-                    <Trigger.EnterActions >
+                <DataTrigger  Binding="{Binding Content,RelativeSource={RelativeSource Self}}" Value="2">
+                    <DataTrigger.EnterActions >
                         <BeginStoryboard>
                             <Storyboard>
-                                <ColorAnimation To="Green" Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" Duration="0:0:1"/>
+                                <ColorAnimation To="Green" Storyboard.TargetProperty="(Background).(SolidColorBrush.Color)" Duration="0:0:1"/>
                             </Storyboard>
                         </BeginStoryboard>
-                    </Trigger.EnterActions>
-                    <Trigger.ExitActions>
+                    </DataTrigger.EnterActions>
+                    <DataTrigger.ExitActions>
                         <BeginStoryboard>
                             <Storyboard>
-                                <ColorAnimation Storyboard.TargetProperty="Background" Duration="0:0:0:0.3" To="Black"/>
+                                <ColorAnimation Storyboard.TargetProperty="(Background).(SolidColorBrush.Color)" Duration="0:0:0:0.3" To="Gray"/>
                             </Storyboard>
                         </BeginStoryboard>
-                    </Trigger.ExitActions>
-                </Trigger>
+                    </DataTrigger.ExitActions>
+                </DataTrigger>
             </Style.Triggers>
         </Style>
     </Window.Resources>
@@ -43,6 +43,7 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Label Background="Gray" Content="{Binding VisibleBlocks[0][0].Number}" Grid.Row="0" Grid.Column="0"></Label>
